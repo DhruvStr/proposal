@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Be Friends 😊</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Pink background */
+        body {
+            background-color: #ffb6c1;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents scrolling due to floating elements */
+        }
+
+        /* Centering the container */
+        .container {
+            background: rgba(4, 1, 1, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 15px;
+            width: 60%;
+            margin: 50px auto;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border: 5px solid transparent;
+            animation: glow 1.5s infinite alternate;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Border Glow Animation */
+        @keyframes glow {
+            0% {
+                border-color: #ff69b4;
+                box-shadow: 0px 0px 10px #ff69b4;
+            }
+            100% {
+                border-color: #12040b;
+                box-shadow: 0px 0px 20px #ff1493;
+            }
+        }
+
+        /* Button Styling */
+        .friends {
+            background: #13060c;
+            color: rgb(15, 4, 4);
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .friends:hover {
+            background: #ff1493;
+            box-shadow: 0px 0px 10px #ff1493;
+        }
+
+        /* Pop-up Message */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9); /* Transparent white */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 2;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Close button */
+        .close-btn {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background: #ff1493;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            color: #ff1493;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: floatUp 5s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="Phir Le Aya Dil.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pop-up Message -->
+    <div class="popup" id="popup">
+        <h2>💖 You are an amazing friend! 💖</h2>
+        <p>Our friendship means the world to me. Let's make more beautiful memories together! 😊</p>
+        <button class="close-btn" onclick="closePopup()">Got it!</button>
+    </div>
+
+    <script>
+        // Show the pop-up message when the page loads
+        window.onload = function() {
+            document.getElementById("popup").style.display = "block";
+            createFloatingHearts();
+        };
+
+        // Function to close the pop-up
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        // Function to create floating hearts
+        function createFloatingHearts() {
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                document.body.appendChild(heart);
+
+                let xPos = Math.random() * window.innerWidth;
+                let yPos = Math.random() * window.innerHeight;
+
+                heart.style.left = `${xPos}px`;
+                heart.style.top = `${yPos}px`;
+                heart.style.animationDuration = `${2 + Math.random() * 2}s`;
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+
+            setTimeout(createFloatingHearts, 2000);
+        }
+    </script>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Our Friendship is Forever! 💙</h1>
+        <p>
+            *Thank you for being honest with me—it truly means the world.  
+            It means a lot that you trust me enough to share how you feel.*  
+            <br><br>
+            *While I was hoping for a different answer,  
+            I truly value our friendship and everything we’ve shared so far.*  
+            <br><br>
+            *You’re an incredible person,  
+            and I’m grateful to have you in my life, no matter what role that takes.*  
+            <br><br>
+            *I respect your decision, and I’ll always be here for you as a friend—  
+            to support you, laugh with you, and be a part of your journey.*  
+            <br><br>
+            *Even if we’re not meant to be more than friends,  
+            I know our connection is something special,  
+            and I’ll always cherish the moments we’ve had and the ones yet to come.*  
+            <br><br>
+            *Thank you for being you,  
+            and for letting me be a part of your life.  
+            Let’s keep building this friendship and making memories together—  
+            because you’re someone worth keeping in my life, no matter what.* 💙  
+        </p>
+       <button class="friends" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+</body>
+</html>

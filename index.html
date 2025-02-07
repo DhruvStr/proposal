@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise!!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* Romantic Background */
+        body {
+            background-color: #ffcccc;
+            font-family: "Georgia", serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Main Container */
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            width: 60%;
+            margin: 50px auto;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border: 5px solid transparent;
+            animation: glow 1.5s infinite alternate;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glowing Border */
+        @keyframes glow {
+            0% {
+                border-color: #ff99cc;
+                box-shadow: 0px 0px 10px #ff99cc;
+            }
+            100% {
+                border-color: #ff4d94;
+                box-shadow: 0px 0px 20px #ff4d94;
+            }
+        }
+
+        /* Italicized Text */
+        p {
+            font-style: italic;
+            font-size: 18px;
+            color: #444;
+        }
+
+        h1 {
+            font-style: italic;
+        }
+
+        /* Button Styles */
+        .yes, .friends {
+            background: #ff4d94;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-style: italic;
+        }
+
+        .friends {
+            background: #999;
+        }
+
+        .yes:hover {
+            background: #cc0052;
+            box-shadow: 0px 0px 10px #cc0052;
+        }
+
+        .friends:hover {
+            background: #666;
+            box-shadow: 0px 0px 10px #666;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="Raabta.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <h1>Will You Be My Girlfriend? ❤️</h1>
+        <p>
+            *Utsavi, every moment with you feels like a beautiful dream.  
+            You bring light into my life in ways I never imagined,  
+            and I cherish every laugh, every conversation, and every little moment we share.*  
+            <br><br>
+            *You’re not just my best friend; you are the person who makes my world brighter.  
+            Your kindness, your warmth, and the way you make everything feel special—it’s all so magical.*  
+            <br><br>
+            *I’ve realized that my heart beats a little faster when I’m around you,  
+            and I don’t want to keep this to myself anymore.  
+            I want to be the person who makes you feel loved, supported, and appreciated every single day.*  
+            <br><br>
+            *So, with all my heart, I’m asking you...  
+            **Will you be my girlfriend?** ❤️*
+        </p>
+        <div class="buttons">
+            <button class="yes" onclick="sendResponse('yes')">YES</button>
+            <button class="friends" onclick="sendResponse('friends')">Let's Be Friends</button>
+        </div>
+    </div>
+</body>
+</html>

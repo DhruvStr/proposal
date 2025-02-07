@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes! ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Romantic Red Background */
+        body {
+            background-color: #ff4d4d;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents scrolling due to floating elements */
+        }
+
+        /* Main Container Styling */
+        .container {
+            background: rgba(20, 3, 3, 0.85); /* Semi-transparent white */
+            padding: 20px;
+            border-radius: 15px;
+            width: 60%;
+            margin: 50px auto;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border: 5px solid transparent;
+            animation: glow 1.5s infinite alternate;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Border Glow Animation */
+        @keyframes glow {
+            0% {
+                border-color: #ff6666;
+                box-shadow: 0px 0px 10px #ff6666;
+            }
+            100% {
+                border-color: #ff1a1a;
+                box-shadow: 0px 0px 20px #ff1a1a;
+            }
+        }
+
+        /* Button Styling */
+        .yes {
+            background: #ff3333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .yes:hover {
+            background: #cc0000;
+            box-shadow: 0px 0px 10px #cc0000;
+        }
+
+        /* Pop-up Message */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(9, 2, 2, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 2;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Close button */
+        .close-btn {
+            background: #ff3333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background: #cc0000;
+        }
+
+        /* Floating Hearts and Stars */
+        .floating {
+            position: absolute;
+            color: #ffcccb;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: floatUp 5s infinite ease-in-out;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="Pehli Nazar Mein.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pop-up Message -->
+    <div class="popup" id="popup">
+        <h2>💖 I Love You! 💖</h2>
+        <p>You’ve just made me the happiest person alive. This is the start of something truly magical! ❤️</p>
+        <button class="close-btn" onclick="closePopup()">Aww! 😍</button>
+    </div>
+
+    <script>
+        // Show the pop-up message when the page loads
+        window.onload = function() {
+            document.getElementById("popup").style.display = "block";
+            createFloatingElements();
+        };
+
+        // Function to close the pop-up
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        // Function to create floating hearts & stars
+        function createFloatingElements() {
+            for (let i = 0; i < 10; i++) {
+                let floating = document.createElement("div");
+                floating.classList.add("floating");
+                floating.innerHTML = Math.random() > 0.5 ? "❤️" : "✨";
+                document.body.appendChild(floating);
+
+                let xPos = Math.random() * window.innerWidth;
+                let yPos = Math.random() * window.innerHeight;
+
+                floating.style.left = `${xPos}px`;
+                floating.style.top = `${yPos}px`;
+                floating.style.animationDuration = `${3 + Math.random() * 2}s`;
+
+                setTimeout(() => {
+                    floating.remove();
+                }, 5000);
+            }
+
+            setTimeout(createFloatingElements, 2000);
+        }
+    </script>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>I Love You Too! ❤️</h1>
+        <p>
+            I can’t even begin to describe how happy you’ve made me by saying yes!  
+            You’ve just given me the greatest gift I could ever ask for,  
+            and I promise to cherish it every single day.  
+            <br><br>
+            From this moment on, I want to be the person who makes you feel loved,  
+            appreciated, and supported in everything you do.  
+            You mean the world to me, and I’m so excited to start this beautiful journey with you.  
+            <br><br>
+            *I can’t wait to create unforgettable memories together,  
+            to laugh until our stomachs hurt, to dream big,  
+            and to face life’s challenges as a team.*  
+            <br><br>
+            *You’ve always been someone special to me,  
+            and now I feel like the luckiest person alive to call you mine.*  
+            <br><br>
+            *This is just the beginning of something amazing,  
+            and I can’t wait to see where our story takes us.  
+            **I love you, and I’m so grateful to have you in my life.**  
+            Let’s make every moment count! ❤️*
+        </p>        
+        <button class="yes" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+</body>
+</html>
